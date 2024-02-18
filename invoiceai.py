@@ -37,7 +37,7 @@ def input_image_details(uploaded_file):
     else:
         raise FileNotFoundError("No file is uploaded")
 
-input_prompt = sl.text_input("Input Prompt", key='input')
+input_prompt = sl.text_input("Budget for products", key='input')
 uploaded_file = sl.file_uploader("Provide an image of the invoice", type = ["jpg","jpeg","png"])
 
 if uploaded_file is not None:
