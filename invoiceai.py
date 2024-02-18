@@ -18,7 +18,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY")) # Allows GOOGLE_API_KEY to 
 model = genai.GenerativeModel(model_name='gemini-pro-vision')
 
 #sl.set_page_config(page_title="MultiLanguage Invoice Extractor") # For some reason this keeps giving an error, so we'll just ignore it because it seems to work well without it.
-sl.header("MultiLanguage Invoice Extractor")
+sl.header("MultiLanguage Purchase Order Analyser")
 
 def get_gemini_response(input, image, user_prompt):
     response = model.generate_content([input, image[0], user_prompt])
@@ -47,10 +47,10 @@ if uploaded_file is not None:
 submit = sl.button("Tell me about the invoice")
 
 input_prompt_guide = """
-You are an expert at analyzing invoices in any language. We will upload an image of an invoice, and you will be tasked with addressing inquiries related to the content
-of the uploaded invoice. This could include deciphering details such as billing amounts, item descriptions, dates, and any other pertinent information found
-within the invoice. You will apply your proficiency to extract and interpret relevent data accurately from the invoice image, enabling us to effectively
-address queries and manage invoice-related tasks. If the image does not contain any invoice information, respond with Inappropriate Input.
+You are an expert at analyzing a users purchase order in any language. We will upload an image of a purchase order, and you will be tasked with addressing inquiries related to the content
+of the uploaded purchase order. This could include deciphering details such as billing amounts, item descriptions, dates, and any other pertinent information found
+within the purchase order. You will apply your proficiency to extract and interpret relevent data accurately from the purchase orders image, enabling us to effectively
+address queries and manage purchase order-related tasks.You will be able to generate a spending report with all of the purchase orders you have been given. If the image does not contain any Purchase Order information, respond with Inappropriate Input.
 """
 
 if submit:
