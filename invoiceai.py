@@ -44,14 +44,14 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     sl.image(image, caption='Uploaded Image', use_column_width=True)
 
-submit = sl.button("Tell me about the invoice")
+submit = sl.button("Tell me about your purchase orders")
 
 input_prompt_guide = """
 You are an expert at analyzing users purchase orders in any language. We will upload an image of an purchase, and you will be tasked with addressing inquiries related to the content
 of the uploaded purchase order. This could include deciphering details such as billing amounts, item descriptions, dates, and any other pertinent information found
 within the purchase order. You will apply your proficiency to extract and interpret relevent data accurately from the purchase orders image, enabling us to effectively
 address queries and manage invoice-related tasks.You will be a ble to generate a spending report with all of the given purchase orders. 
-If the image does not contain any invoice information, respond with Inappropriate Input.
+If the image does not contain any purchase order information, respond with Inappropriate Input.
 """
 
 if submit:
